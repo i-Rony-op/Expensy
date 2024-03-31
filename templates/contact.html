@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{% static 'styles/contact.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="nav-elem1">
+        <a href="/" id="logo">
+          <div class="spinner">
+            <div class="spinner1"></div>
+          </div>
+          <p id="logo">Expensy</p>
+        </a>
+      </div>
+      <div class="nav-elem2">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact Us</a></li>
+        </ul>
+      </div>
+    </header>
+    <div class="container">
+      <form id="Form" method="post" action="">
+        <h1>Talk With Us...!</h1>
+        <div class="inputBox">
+          <input type="text" placeholder="Name" name="name" />
+          <input type="email" placeholder="E-Mail" name="email" />
+        </div>
+        <input type="text" placeholder="Subject" id="subject" name="subject" />
+        <textarea
+          placeholder="Message"
+          name="textarea"
+          id=""
+          cols="30"
+          rows="10"
+        ></textarea>
+        <input type="submit" class="send-btn" value="SEND" />
+
+        <div id="icons">
+          <a href=""><img src="static/images/github.png" alt="Image" /></a>
+          <a href=""><img src="static/images/instagram.png" alt="Image" /></a>
+          <a href=""><img src="static/images/twitter.png" alt="Image" /></a>
+          <a href=""><img src="static/images/facebook.png" alt="Image" /></a>
+        </div>
+      </form>
+    </div>
+    <script>
+      document
+        .getElementsByClassName("send-btn")[0]
+        .addEventListener("click", function (e) {
+          alert("data add successfully");
+        });
+    </script>
+  </body>
+</html>

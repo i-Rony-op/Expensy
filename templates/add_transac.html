@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Transaction</title>
+    <link rel="stylesheet" href="{% static 'styles/add_transac.css' %}" />
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <div class="logo">
+          <a href="/" id="logo">
+            <div class="spinner">
+              <div class="spinner1"></div>
+            </div>
+            <p id="logo">Expensy</p>
+          </a>
+        </div>
+        <div class="nav-elem">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="exp-box">
+      <h2>Add Your Expenses</h2>
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="item-box">
+          <label>Item Name</label>
+          <input type="text" name="item" required="" autocomplete="off" />
+        </div>
+
+        <div class="item-box">
+          <label>Price</label>
+          <input type="text" name="price" required="" autocomplete="off" />
+        </div>
+
+        <div class="item-box">
+          <label>Description</label>
+          <input type="text" name="desc" required="" autocomplete="off" />
+        </div>
+        <button onclick="success()" type="submit">Add Item</button>
+      </form>
+    </div>
+    <script>
+      function success() {
+        alert("Data added successfully");
+      }
+    </script>
+  </body>
+</html>

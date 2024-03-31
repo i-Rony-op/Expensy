@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Expense Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="{% static 'styles/expense.css' %}" />
+  </head>
+
+  <body>
+    <!-- <main> -->
+    <!-- <div id="container"> -->
+    <!-- <h1 id="heading">Expense Tracker</h1>
+        <h4>Your Balance</h4>
+        <h1 id="balance">₹0.00</h1>
+        <div id="inc-exp-container">
+          <div id="income">
+            <h4>Imcome</h4>
+            <p class="money-plus" id="money-plus">+₹0.00</p>
+          </div>
+          <div id="expense">
+            <h4>Expense</h4>
+            <p class="money-minus" id="money-minus">-₹0.00</p>
+          </div>
+        </div>
+
+        <h3>History</h3>
+        <ul>
+          <li id="minus">
+            Cash
+            <span>-₹400</span><button class="delete-btn">X</button>
+          </li>
+        </ul>
+
+        <h3>All Transactions</h3>
+
+        <form action="" id="form">
+          <div class="form-control">
+            <label for="text">Text</label>
+            <input type="text" id="text" placeholder="Enter Item..." />
+          </div>
+
+          <div class="form-control">
+            <label for="amount">Amount</label>
+            <input type="number" id="amount" placeholder="Enter Amount..." />
+          </div>
+          <button type="submit" class="btn">Add Transaction</button>
+        </form> -->
+    <!-- </div> -->
+    <!-- </main> -->
+    <header>
+      <div class="header">
+        <div class="logo">
+          <a href="/" id="logo">
+            <div class="spinner">
+              <div class="spinner1"></div>
+            </div>
+            <p id="logo">Expensy</p>
+          </a>
+        </div>
+        <div class="nav-elem">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li><a href="/contact">Contact Us</a></li>
+          </ul>
+
+          <div id="login">
+            <div id="user">
+              {% if user.is_authenticated %}
+              <h3>Hello, <span> {{user.first_name}}</span></h3>
+            </div>
+            <div id="logs">
+              <a href="/accounts/logout" class="Btn">
+                <div class="sign">
+                  <svg viewBox="0 0 512 512">
+                    <path
+                      d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div class="text">Logout</div>
+              </a>
+
+              {% else %}
+              <div id="log-btn">
+                <a href="/accounts/login">Login</a>
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="transaction-table">
+        <table>
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th class="right-border">Date</th>
+          </tr>
+          {% for ob in obj %}
+          <tr>
+            <td>{{ob.item}}</td>
+            <td>₹ {{ob.price}}</td>
+            <td>{{ob.description}}</td>
+            <td class="right-border">{{ob.date}}</td>
+          </tr>
+          {% endfor %}
+          <tr>
+            <td class="large">Total</td>
+            <td class="large">₹ {{sum}}</td>
+            <td></td>
+            <td class="right-border"></td>
+          </tr>
+        </table>
+        <div class="add-item">
+          <a href="/transacts/add_transac" class="button">
+            <span class="button__text">Add Item</span>
+            <span class="button__icon"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                stroke="currentColor"
+                height="24"
+                fill="none"
+                class="svg"
+              >
+                <line y2="19" y1="5" x2="12" x1="12"></line>
+                <line y2="12" y1="12" x2="19" x1="5"></line>
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script></script>
+  </body>
+</html>
